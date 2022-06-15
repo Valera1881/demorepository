@@ -1,0 +1,54 @@
+﻿<Page x:Class="Programdemo.Pages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Programdemo.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="137*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Выход" x:Name="BExit" Click="BExit_Click"/>
+            <TextBox x:Name="TBSearch" SelectionChanged="TBSearch_SelectionChanged" Width="200"/>
+            <Button x:Name="BOrder" Content="Мои заказы" Click="BOrder_Click"/>
+        </StackPanel>
+        
+
+        <ListView Grid.Row="1" Name="LVProduct" SelectionChanged="LVProduct_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border BorderBrush="Black" BorderThickness="1">
+
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderBrush="Black" BorderThickness="1" Width="200" Height="100" Margin="10">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Image}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Width="200" Height="100" Margin="10">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1" Width="200" Height="100" Margin="10">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Price}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                    </Border>
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
